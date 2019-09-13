@@ -1,0 +1,1 @@
+include ':app', ':repositorykit', ':model', ':repositorykitimpl', ':local', ':bitcoinpricechart', ':remote', ':base', ':basekit', ':basekitimpl'

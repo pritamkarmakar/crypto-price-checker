@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="sea">#05668D</color>
+    <color name="color_accent">#00A896</color>
+    <color name="colorYellow">#00A896</color>
+    <color name="white">#ffffff</color>
+    <color name="button_disabled">#638ca6</color>
+    <color name="button_pressed">@color/sea</color>
+    <color name="button_enabled">@color/color_accent</color>
+    <color name="colorPrimaryLight">#5C6BC0</color>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#03A9F4</color>
+</resources>

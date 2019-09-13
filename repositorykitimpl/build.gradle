@@ -1,0 +1,27 @@
+apply plugin: 'com.android.library'
+apply from: '../android_commons.gradle'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android'
+
+dependencies {
+    implementation rxkotlin
+    implementation appcompat
+    // dagger 2
+    implementation dagger
+    implementation daggerandroid
+    implementation daggerandroidsupport
+    kapt daggercompiler
+    kapt daggerandroidprocessor
+    // unit test
+    testImplementation junit
+    testImplementation mockitokotlin
+    testImplementation mockitoinline
+    // rxandroid
+    implementation rxandroid
+
+    implementation project(':remote')
+    implementation project(':local')
+    implementation project(':model')
+    implementation project(':repositorykit')
+    implementation project(':basekit')
+}

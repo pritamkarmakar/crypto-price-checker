@@ -1,0 +1,34 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply from: '../dependencies.gradle'
+
+android {
+    compileSdkVersion appCompileSdkVersion
+    defaultConfig {
+        minSdkVersion minSdkSupportedVersion
+        targetSdkVersion maxSdkSupportedVersion
+    }
+}
+
+dependencies {
+    implementation kotlin
+    implementation appcompat
+    implementation corektx
+    implementation gson
+
+    // room
+    implementation room
+    implementation roomrxjava
+    implementation convertergson
+    kapt roomcompiler
+
+    // dagger 2
+    implementation dagger
+    implementation daggerandroid
+    implementation daggerandroidsupport
+    kapt daggercompiler
+    kapt daggerandroidprocessor
+
+    implementation project(':model')
+}

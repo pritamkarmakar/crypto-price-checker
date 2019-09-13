@@ -1,0 +1,9 @@
+apply plugin: 'kotlin'
+apply plugin: 'kotlin-kapt'
+apply from: '../dependencies.gradle'
+
+dependencies {
+    implementation rxkotlin
+
+    implementation project(':model')
+}

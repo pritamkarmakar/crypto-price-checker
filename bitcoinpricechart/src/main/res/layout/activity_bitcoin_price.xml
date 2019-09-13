@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:bind="http://schemas.android.com/tools">
+    <data>
+        <import type="android.view.View"/>
+        <variable name="vm" type="com.example.bitcoinpricechart.viewmodel.BitcoinPriceViewModel"/>
+        <variable name="timeSpan" type="com.example.bitcoinpricechart.viewmodel.TimeSpan"/>
+        <variable name="axisFormatter" type="com.example.bitcoinpricechart.view.DateAxisFormatter"/>
+        <variable name="dataNormalization" type="com.example.bitcoinpricechart.DataNormalization"/>
+    </data>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  xmlns:app="http://schemas.android.com/apk/res-auto"
+                  android:id="@+id/graphActivityRoot"
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:orientation="vertical">
+
+        <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.88"
+                android:padding="15dp">
+
+            <ProgressBar
+                    android:id="@+id/progress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:visibility="@{vm.getProgressBarVisibility()}"/>
+
+            <RelativeLayout
+                    android:id="@+id/graph_holder"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="@{vm.getGraphVisibility()}">
+                <com.github.mikephil.charting.charts.LineChart
+                        android:id="@+id/graphView"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:addSeries="@{dataNormalization.getDataToBind()}"/>
+
+            </RelativeLayout>
+        </FrameLayout>
+
+        <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="0.12"
+                android:orientation="horizontal">
+
+            <Button
+                    android:id="@+id/one_month"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"
+                    android:gravity="center"
+                    android:onClick="@{() -> vm.onUpdateChartButtonClicked(timeSpan.OneMonth)}"
+                    android:text="@string/one_month"
+                    style="@style/ButtonStyle"/>
+
+            <Button
+                    android:id="@+id/three_month"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"
+                    android:gravity="center"
+                    android:text="@string/three_month"
+                    android:onClick="@{() -> vm.onUpdateChartButtonClicked(timeSpan.ThreeMonth)}"
+                    style="@style/ButtonStyle"/>
+
+            <Button
+                    android:id="@+id/one_year"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"
+                    android:gravity="center"
+                    android:onClick="@{() -> vm.onUpdateChartButtonClicked(timeSpan.Year)}"
+                    android:text="@string/one_year"
+                    style="@style/ButtonStyle"/>
+
+            <Button
+                    android:id="@+id/max"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"
+                    android:gravity="center"
+                    android:onClick="@{() -> vm.onUpdateChartButtonClicked(timeSpan.AllTime)}"
+                    android:text="@string/all_time"
+                    style="@style/ButtonStyle"/>
+
+        </LinearLayout>
+    </LinearLayout>
+</layout>

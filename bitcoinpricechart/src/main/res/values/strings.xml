@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">bitcoinpricechart</string>
+    <string name="one_month">1 month</string>
+    <string name="three_month">3 months</string>
+    <string name="one_year">1 year</string>
+    <string name="all_time">All Time</string>
+    <string name="error_string">Error occurred, please try again</string>
+    <string name="error_string_no_internet">Looks like you don\'t have internet connection, you\'re getting offline data</string>
+</resources>

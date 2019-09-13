@@ -1,0 +1,60 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply from: '../dependencies.gradle'
+
+android {
+    compileSdkVersion appCompileSdkVersion
+    defaultConfig {
+        applicationId appApplicationId
+        minSdkVersion minSdkSupportedVersion
+        targetSdkVersion maxSdkSupportedVersion
+        versionCode appVersion
+        versionName appVersionName
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    dataBinding {
+        enabled = true
+    }
+    buildToolsVersion = buildToolsVersion
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation appcompat
+    implementation corektx
+    implementation constraintlayout
+    implementation junit
+
+    // rxkotlin
+    implementation kotlin
+    implementation rxkotlin
+    implementation rxandroid
+
+    // dagger 2
+    implementation dagger
+    implementation daggerandroid
+    implementation daggerandroidsupport
+    kapt daggercompiler
+    kapt daggerandroidprocessor
+
+    // reference to all the modules
+    implementation project(':bitcoinpricechart')
+    api project(':remote')
+    implementation project(':local')
+    implementation project(':model')
+    implementation project(':repositorykit')
+    implementation project(':repositorykitimpl')
+    implementation project(':basekit')
+    implementation project(':basekitimpl')
+}
+
+repositories {
+    google()
+    jcenter()
+}
