@@ -1,5 +1,11 @@
 # Android App To Demonstrate Clean Architecture
-Android app to demonstrate Clean Architecture.
+Android app to demonstrate Clean Architecture. The application uses Clean Architecture based on MVVM and Repository patterns. The application is written entirely in Kotlin.
+
+The application does network HTTP requests via Retrofit, OkHttp and GSON. Loaded data is saved to SQL based database Room, which serves as single source of truth and support offline mode.
+
+Dagger 2 is used for dependency injection.
+
+Unit tests are written using JUnit and Mockito.
 
 ## Languages, libraries and tools used
 
