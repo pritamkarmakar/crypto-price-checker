@@ -17,16 +17,18 @@
 ## Architecture
 
 The architecture of the project follows the principles of Clean Architecture. Here's how the sample project implements it:
+&nbsp;
+&nbsp;
 ![architecture](images/architecture_diagram_1.png)
+&nbsp;
 &nbsp;
 &nbsp;
 ![architecture](images/architecture_diagram_2.png)
 &nbsp;
 &nbsp;
+&nbsp;
 ![architecture](images/architecture_diagram_3.png)
-&nbsp;
-&nbsp;
-![architecture](images/architecture_diagram_4.png)
+
 
 ## App Demo
 User can select various timespan to see the Bitcoin price
