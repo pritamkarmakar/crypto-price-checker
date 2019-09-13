@@ -1,5 +1,5 @@
 # Android App To Demonstrate Clean Architecture
-
+Android app to demonstrate Clean Architecture.
 
 ## Languages, libraries and tools used
 
@@ -18,9 +18,12 @@
 
 The architecture of the project follows the principles of Clean Architecture. Here's how the sample project implements it:
 <br/>
+<br/>
 ![architecture](images/architecture_diagram_1.png)
 <br/>
+<br/>
 ![architecture](images/architecture_diagram_2.png)
+<br/>
 <br/>
 ![architecture](images/architecture_diagram_3.png)
 
