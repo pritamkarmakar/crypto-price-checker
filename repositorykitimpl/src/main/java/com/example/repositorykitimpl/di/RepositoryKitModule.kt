@@ -9,7 +9,8 @@ import dagger.Module
 import dagger.Provides
 
 @Module
-class RepositoryKitModule {
+object RepositoryKitModule {
+    @JvmStatic
     @Provides
     fun providesBitcoinPriceRepository(
         bitcoinPriceSource: BitcoinPriceSource,

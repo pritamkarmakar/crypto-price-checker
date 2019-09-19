@@ -36,9 +36,8 @@ class BitcoinPriceActivity : AppCompatActivity() {
         val dependencies: FeatureDependencies =
             (applicationContext as FeatureDependenciesProvider).provideFeatureDependencies()
         val component = DaggerBitcoinPriceComponent
-            .builder()
-            .dependencies(dependencies)
-            .build()
+            .factory()
+            .create(dependencies)
         component.inject(this)
     }
 

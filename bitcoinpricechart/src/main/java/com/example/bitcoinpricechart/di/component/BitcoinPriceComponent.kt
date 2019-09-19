@@ -11,10 +11,9 @@ import javax.inject.Singleton
 @Singleton
 @Component(modules = [BitcoinPriceModule::class], dependencies = [FeatureDependencies::class])
 interface BitcoinPriceComponent {
-    @Component.Builder
-    interface Builder {
-        fun build(): BitcoinPriceComponent
-        fun dependencies(dependencies: FeatureDependencies): Builder
+    @Component.Factory
+    interface Factory {
+        fun create(dependencies: FeatureDependencies): BitcoinPriceComponent
     }
 
     fun inject(activity: BitcoinPriceActivity)

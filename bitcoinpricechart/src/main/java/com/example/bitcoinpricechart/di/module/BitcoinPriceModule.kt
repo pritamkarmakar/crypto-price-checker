@@ -12,7 +12,9 @@ import io.reactivex.disposables.CompositeDisposable
 import javax.inject.Singleton
 
 @Module
-class BitcoinPriceModule {
+object BitcoinPriceModule {
+
+    @JvmStatic
     @Provides
     fun providesViewModel(
         repositoryKit: RepositoryKit,
@@ -23,11 +25,13 @@ class BitcoinPriceModule {
     ): BitcoinPriceViewModel =
         BitcoinPriceViewModel(repositoryKit, toastMaker, dataNormalization, schedulerProvider, compositeDisposable)
 
+    @JvmStatic
     @Provides
     @Singleton
     fun providesDataNormalization(): DataNormalization =
         DataNormalizationImpl()
 
+    @JvmStatic
     @Provides
     @Singleton
     fun provideCompositeDisposable(): CompositeDisposable = CompositeDisposable()
