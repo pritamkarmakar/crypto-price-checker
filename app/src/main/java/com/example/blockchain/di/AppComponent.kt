@@ -13,14 +13,14 @@ import javax.inject.Singleton
 
 @Component(modules = [AppModule::class, RepositoryKitModule::class, PriceDaoModule::class, RemoteModule::class])
 @Singleton
-interface AppComponent{
-    @Component.Builder
-    interface Builder {
-        @BindsInstance
-        fun bindApp(app: Application): Builder
-        fun build(): AppComponent
-        fun appModule(appModule: AppModule): Builder
+interface AppComponent : AppDependencies {
+    @Component.Factory
+    interface Factory {
+        fun create(@BindsInstance app: Application): AppComponent
     }
+}
+
+interface AppDependencies {
     fun repokit(): RepositoryKit
     fun scheduleProvider(): SchedulerProvider
     fun toastMaker(): ToastMaker

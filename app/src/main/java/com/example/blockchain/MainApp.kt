@@ -12,10 +12,8 @@ class MainApp : Application(), FeatureDependenciesProvider {
     private lateinit var rootDependenciesProvider: RootDependenciesProvider
     override fun onCreate() {
         appComponent = DaggerAppComponent
-            .builder()
-            .appModule(AppModule(this))
-            .bindApp(this)
-            .build()
+            .factory()
+            .create(app = this)
         super.onCreate()
         rootDependenciesProvider = RootDependenciesProvider(this)
     }

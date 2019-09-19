@@ -1,5 +1,6 @@
 package com.example.blockchain.di
 
+import android.app.Application
 import android.content.Context
 import com.example.basekit.SchedulerProvider
 import com.example.basekit.ToastMaker
@@ -10,12 +11,19 @@ import dagger.Provides
 import javax.inject.Singleton
 
 @Module
-class AppModule(private val context: Context) {
+object AppModule {
+
+    @JvmStatic
     @Singleton
     @Provides
     fun providesSchedulerProvider(): SchedulerProvider = SchedulerProviderImpl()
 
+    @JvmStatic
     @Singleton
     @Provides
-    fun toastMaker(): ToastMaker = ToastMakerImpl(context)
+    fun toastMaker(context: Context): ToastMaker = ToastMakerImpl(context)
+
+    @JvmStatic
+    @Provides
+    fun context(app: Application): Context = app
 }

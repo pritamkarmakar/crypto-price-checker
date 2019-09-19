@@ -17,14 +17,17 @@ import java.util.*
 import javax.inject.Singleton
 
 @Module
-class RemoteModule {
+object RemoteModule {
+    @JvmStatic
     @Provides
     fun provideBitcoinPriceSource(bitcoinPriceApi: BitcoinPriceApi): BitcoinPriceSource = BitcoinPriceSourceImpl(bitcoinPriceApi)
 
+    @JvmStatic
     @Provides
     @Singleton
     fun provideBitcoinPriceApi(retrofit: Retrofit): BitcoinPriceApi = retrofit.create(BitcoinPriceApi::class.java)
 
+    @JvmStatic
     @Provides
     @Singleton
     fun provideRetrofit(okHttpClient: OkHttpClient, gson: Gson?): Retrofit {
@@ -36,6 +39,7 @@ class RemoteModule {
             .build()
     }
 
+    @JvmStatic
     @Provides
     @Singleton
     fun provideGson(): Gson {
@@ -51,6 +55,7 @@ class RemoteModule {
         return builder.create()
     }
 
+    @JvmStatic
     @Provides
     @Singleton
     fun provideOkHttpClient(httpLoggingInterceptor: HttpLoggingInterceptor): OkHttpClient {
@@ -60,6 +65,7 @@ class RemoteModule {
             .build()
     }
 
+    @JvmStatic
     @Provides
     @Singleton
     fun provideLoggingInterceptor(): HttpLoggingInterceptor {
