@@ -34,9 +34,9 @@ The architecture of the project follows the principles of Clean Architecture. He
 ![architecture](images/architecture_diagram_3.png)
 
 ## Dagger Component Dependency Diagram
-This is a multi module project and we have used Dagger to provide all the required dependencies. The feature module has dependencies to few external Components that will be provided by the RootDependenciesProvider class as shown in the diagram. 
+This is a multi module project and we have used Dagger to provide all the required dependencies. The feature module has dependencies to few external Components that will be provided by the RootDependenciesProvider class as shown in the diagram.
 <br/>
-![dagger_cpmponents](images/dagger_component_diagram.png)
+![dagger_cpmponents](images/dagger_component_diagram_updated.png)
 
 
 ## App Demo
